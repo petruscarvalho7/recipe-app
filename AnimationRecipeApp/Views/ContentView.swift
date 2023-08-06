@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var model: Model
+    @EnvironmentObject var model: ModelObserver
     @AppStorage("selTab") var selectedTab: Tab = .home
     
     var body: some View {
@@ -17,7 +17,7 @@ struct ContentView: View {
                 case .home:
                     HomeView()
                 case .favorites:
-                    FavoritesView()
+                    HomeView(isFavorite: true, title: "Favorites")
                 case .profile:
                     ProfileView()
                 }
@@ -38,6 +38,6 @@ struct ContentView_Previews: PreviewProvider {
             ContentView()
                 .preferredColorScheme(.dark)
         }
-        .environmentObject(Model())
+        .environmentObject(ModelObserver())
     }
 }

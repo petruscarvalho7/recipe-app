@@ -19,14 +19,14 @@ struct RecipeItem: View {
             VStack(alignment: .leading, spacing: 12) {
                 Text(recipe.label)
                     .font(.largeTitle.weight(.bold))
-                    .matchedGeometryEffect(id: "title\(recipe.id)", in: namespace)
+                    .matchedGeometryEffect(id: "title\(recipe.label)", in: namespace)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Text(recipe.yield.description + " servings".uppercased())
                     .font(.footnote.weight(.semibold))
-                    .matchedGeometryEffect(id: "subtitle\(recipe.id)", in: namespace)
+                    .matchedGeometryEffect(id: "subtitle\(recipe.label)", in: namespace)
                 Text(recipe.getHealthLabels())
                     .font(.footnote)
-                    .matchedGeometryEffect(id: "text\(recipe.id)", in: namespace)
+                    .matchedGeometryEffect(id: "text\(recipe.label)", in: namespace)
                     .lineLimit(2)
             }
             .padding(20)
@@ -35,7 +35,7 @@ struct RecipeItem: View {
                     .fill(.ultraThinMaterial)
                     .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
                     .blur(radius: 30)
-                    .matchedGeometryEffect(id: "blur\(recipe.id)", in: namespace)
+                    .matchedGeometryEffect(id: "blur\(recipe.label)", in: namespace)
             )
         }
         .foregroundStyle(.white)
@@ -49,7 +49,7 @@ struct RecipeItem: View {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                         .padding(.bottom, 120)
-                        .matchedGeometryEffect(id: "image\(recipe.id)", in: namespace)
+                        .matchedGeometryEffect(id: "image\(recipe.label)", in: namespace)
                 },
                 placeholder: {
                     Image("recipePlaceholder")
@@ -58,19 +58,19 @@ struct RecipeItem: View {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                         .padding(.bottom, 120)
-                        .matchedGeometryEffect(id: "image\(recipe.id)", in: namespace)
+                        .matchedGeometryEffect(id: "image\(recipe.label)", in: namespace)
                 }
             )
         )
         .background(
-            Image("cardDefault")
+            Image("cardDefault2")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .matchedGeometryEffect(id: "background\(recipe.id)", in: namespace)
+                .matchedGeometryEffect(id: "background\(recipe.label)", in: namespace)
         )
         .mask(
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .matchedGeometryEffect(id: "mask\(recipe.id)", in: namespace)
+                .matchedGeometryEffect(id: "mask\(recipe.label)", in: namespace)
               )
         .frame(height: 300)
     }

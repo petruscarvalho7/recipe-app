@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-class Model: ObservableObject {
+class ModelObserver: ObservableObject {
     // Tab Bar
     @Published var showTab: Bool = true
      

@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct RecipeDetailsView: View {
-    @EnvironmentObject var model: Model
+    @EnvironmentObject var model: ModelObserver
     @Binding var show: Bool
     @State var viewState: CGSize = .zero
     @State var showContent = true
     @State var isDraggble = true
     @State var isFavorite = false
     @State var appear = [false, false, false]
+    @State var favRecipeData: FavoriteRecipes?
     var recipe: Recipe = recipesMock[0]
     var namespace: Namespace.ID
+    
+    // SwiftData
+    @Environment(\.modelContext) private var context
     
     var body: some View {
         ZStack {
@@ -41,7 +45,7 @@ struct RecipeDetailsView: View {
         .onAppear {
             fadeIn()
         }
-        .onChange(of: show) { newValue in
+        .onChange(of: show) {
             fadeOut()
         }
     }
@@ -87,7 +91,7 @@ extension RecipeDetailsView {
                             .aspectRatio(contentMode: .fill)
                             .clipShape(Circle())
                             .padding(.bottom, 230)
-                            .matchedGeometryEffect(id: "image\(recipe.id)", in: namespace)
+                            .matchedGeometryEffect(id: "image\(recipe.label)", in: namespace)
                             .offset(y: scrollY > 0 ? scrollY * -0.8 : 0)
                     },
                     placeholder: {
@@ -97,23 +101,23 @@ extension RecipeDetailsView {
                             .aspectRatio(contentMode: .fill)
                             .clipShape(Circle())
                             .padding(.bottom, 230)
-                            .matchedGeometryEffect(id: "image\(recipe.id)", in: namespace)
+                            .matchedGeometryEffect(id: "image\(recipe.label)", in: namespace)
                             .offset(y: scrollY > 0 ? scrollY * -0.8 : 0)
                     }
                 )
             )
             .background(
-                Image("cardDefault")
+                Image("cardDefault2")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .matchedGeometryEffect(id: "background\(recipe.id)", in: namespace)
+                    .matchedGeometryEffect(id: "background\(recipe.label)", in: namespace)
                     .offset(y: scrollY > 0 ? -scrollY : 0)
                     .scaleEffect(scrollY > 0 ? scrollY / 1000 + 1 : 1)
                     .blur(radius: scrollY / 10)
             )
             .mask(
                 RoundedRectangle(cornerRadius: appear[0] ? 0 : 30, style: .continuous)
-                    .matchedGeometryEffect(id: "mask\(recipe.id)", in: namespace)
+                    .matchedGeometryEffect(id: "mask\(recipe.label)", in: namespace)
                     .offset(y: scrollY > 0 ? -scrollY : 0)
             )
             .overlay(
@@ -247,7 +251,22 @@ extension RecipeDetailsView {
                     }
                     .opacity(appear[1] ? 1 : 0)
                     .onTapGesture {
-                        isFavorite = !isFavorite
+                        withAnimation(.spring) {
+                            do {
+                                let favRecipe = FavoriteRecipes(recipe: recipe)
+                                if !isFavorite {
+                                    // Insert a new recipe
+                                    context.insert(favRecipe)
+                                    try context.save()
+                                } else {
+                                    if let favToDelete = favRecipeData {
+                                        close()
+                                        context.delete(favToDelete)
+                                    }
+                                }
+                            } catch { print(error) }
+                            isFavorite = !isFavorite
+                        }
                     }
                 }
                     .padding(20)
@@ -326,7 +345,7 @@ struct RecipeDetailsView_Previews: PreviewProvider {
 
     static var previews: some View {
         RecipeDetailsView(show: .constant(true), namespace: namespace)
-            .environmentObject(Model())
+            .environmentObject(ModelObserver())
     }
 }
 

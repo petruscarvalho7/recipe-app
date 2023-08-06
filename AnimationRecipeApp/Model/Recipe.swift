@@ -12,7 +12,7 @@ import Foundation
 // MARK: - RecipeResponse
 struct RecipeResponse: Codable {
     let from, to, count: Int
-    let hits: [Hit]
+    let hits: [Hit]?
 }
 
 // MARK: - Hit
@@ -26,7 +26,7 @@ struct Hit: Codable {
 
 // MARK: - Recipe
 struct Recipe: Codable, Identifiable {
-    var id = UUID()
+    var id: UUID?
     let uri: String
     let label: String
 //    let image: String
