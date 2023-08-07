@@ -39,5 +39,6 @@ struct ContentView_Previews: PreviewProvider {
                 .preferredColorScheme(.dark)
         }
         .environmentObject(ModelObserver())
+        .environmentObject(RecipeObserver())
     }
 }

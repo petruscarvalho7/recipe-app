@@ -25,7 +25,7 @@ var tabItems = [
             color: .pink,
             selection: .favorites),
     TabItem(name: "Profile",
-            icon: "rectangle.stack",
+            icon: "person.crop.circle",
             color: .blue,
             selection: .profile)
 ]

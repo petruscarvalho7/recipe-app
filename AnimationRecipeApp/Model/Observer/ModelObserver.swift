@@ -8,6 +8,11 @@
 import SwiftUI
 import Combine
 
+enum Modal: String {
+    case signUp
+    case signIn
+}
+
 class ModelObserver: ObservableObject {
     // Tab Bar
     @Published var showTab: Bool = true
@@ -24,9 +29,3 @@ class ModelObserver: ObservableObject {
     @Published var showDetail: Bool = false
     @Published var selectedCourse: Int = 0
 }
-
-enum Modal: String {
-    case signUp
-    case signIn
-}
-

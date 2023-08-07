@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TabBar: View {
     @AppStorage("selTab") var selectedTab: Tab = .home
-    @State var color: Color                    = .teal
-    @State var tabItemWidth: CGFloat           = .zero
+    @State var color: Color = .teal
+    @State var tabItemWidth: CGFloat = .zero
     
     var body: some View {
         GeometryReader { proxy in
@@ -47,14 +47,9 @@ extension TabBar {
         HStack {
             if selectedTab == .profile { Spacer() }
             if selectedTab == .favorites { Spacer() }
-//            if selectedTab == .notifications {
-//                Spacer()
-//                Spacer()
-//            }
             Circle().fill(color).frame(width: tabItemWidth)
             if selectedTab == .home { Spacer() }
             if selectedTab == .favorites { Spacer() }
-//            if selectedTab == .notifications { Spacer() }
         }
         .padding(.horizontal, 8)
     }
@@ -63,10 +58,6 @@ extension TabBar {
         HStack {
             if selectedTab == .profile { Spacer() }
             if selectedTab == .favorites { Spacer() }
-//            if selectedTab == .notifications {
-//                Spacer()
-//                Spacer()
-//            }
             Rectangle()
                 .fill(color)
                 .cornerRadius(3)
@@ -75,7 +66,6 @@ extension TabBar {
                 .frame(maxHeight: .infinity, alignment: .top)
             if selectedTab == .home { Spacer() }
             if selectedTab == .favorites { Spacer() }
-//            if selectedTab == .notifications { Spacer() }
         }
         .padding(.horizontal, 8)
     }
@@ -102,7 +92,7 @@ extension TabBar {
                 .frame(maxWidth: .infinity)
             }
             .foregroundStyle(selectedTab == item.selection ? .primary : .secondary)
-            .blendMode(selectedTab       == item.selection ? .overlay : .normal)
+            .blendMode(selectedTab == item.selection ? .overlay : .normal)
             .overlay(
                 GeometryReader { proxy in
                     Color.clear.preference(key: TabPreferenceKey.self, value: proxy.size.width)

@@ -10,6 +10,7 @@ import SwiftData
 
 struct HomeView: View {
     @EnvironmentObject var model: ModelObserver
+    @EnvironmentObject var recipeModel: RecipeObserver
     @Namespace var namespace
     @State var showStatusBar = true
     @State var selectedIndex = 0
@@ -19,10 +20,10 @@ struct HomeView: View {
     @State var show = false
     @State var isFavorite = false
     @State var title = "Home"
-    @State var recipeList: [Recipe] = []
     @Query var recipes: [FavoriteRecipes]
     
     var body: some View {
+        let recipeList = getListData()
         ZStack {
             Color("Background")
                 .ignoresSafeArea()
@@ -30,16 +31,20 @@ struct HomeView: View {
             ScrollView(showsIndicators: false) {
                 scrollDetection
                 
-                if recipeList.isEmpty {
+                switch recipeModel.recipeStateList {
+                case .isLoading:
                     LoadingView()
-                } else {
+                        .frame(height: 500)
+                case .isEmpty:
+                    if isFavorite {
+                        FavoriteEmptyView()
+                    }
+                case .hasList:
                     Text("Recipes".uppercased())
                         .font(.footnote.weight(.semibold))
                         .foregroundColor(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 20)
-                    
-                    
                     LazyVGrid(columns: [GridItem(
                         .adaptive(minimum: 300), spacing: 20)], spacing: 20) {
                         if !show {
@@ -61,7 +66,7 @@ struct HomeView: View {
             }
             .onChange(of: recipes.count) {
                 if isFavorite {
-                    setFavValues()
+                    recipeModel.setFavValues(recipes: recipes)
                 }
             }
             .coordinateSpace(name: "scroll")
@@ -76,18 +81,9 @@ struct HomeView: View {
                 detail
             }
         }
-        .task {
-            if isFavorite {
-                if (!recipes.isEmpty) {
-                    setFavValues()
-                } else {
-                    self.recipeList = []
-                }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                    self.fetchRecipeList()
-                }
-            }
+        .onAppear {
+            print(recipeList.count)
+            recipeModel.recipeListTask(isFavorite: isFavorite, recipes: recipes)
         }
         .statusBarHidden(!showStatusBar)
         .onChange(of: show) { oldState, newState in
@@ -97,27 +93,6 @@ struct HomeView: View {
                 } else {
                     showStatusBar = true
                 }
-            }
-        }
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-            .environmentObject(ModelObserver())
-    }
-}
-
-// fetch data
-extension HomeView {
-    func fetchRecipeList(searchText: String = "pasta") {
-        RecipeAPILogic.shared.searchRecipe(textQuery: searchText) { [self] result in
-            switch result {
-            case .success(let recipesList):
-                self.recipeList = recipesList
-            case .failure(_): break
-                // TODO: failure flow
             }
         }
     }
@@ -144,7 +119,8 @@ extension HomeView {
     }
     
     var cards: some View {
-        ForEach(recipeList) { recipe in
+        let recipeList = getListData()
+        return ForEach(recipeList) { recipe in
             RecipeItem(show: $show, namespace: namespace, recipe: recipe)
                 .onTapGesture {
                     withAnimation(.openCard.delay(0.3)) {
@@ -156,11 +132,23 @@ extension HomeView {
             }
         }
     }
-    
+
     var detail: some View {
-        ForEach(recipeList.indices, id: \.self) { i in
+        let recipeList = getListData()
+        return ForEach(recipeList.indices, id: \.self) { i in
             if recipeList[i].id == selectedID {
-                RecipeDetailsView(show: $show, isFavorite: isFavorite, favRecipeData: isFavorite && recipes.count > 0 ? recipes[i] : nil, recipe: recipeList[i], namespace: namespace)
+                let recipeExists = recipes.filter { $0.label == recipeList[i].label }
+                let favRecipe = isFavorite
+                    ? isFavorite
+                    : recipeExists.isEmpty == false
+                RecipeDetailsView(show: $show,
+                                  isFavorite: favRecipe,
+                                  favRecipeData: favRecipe && recipes.count > 0
+                                    ? recipeExists.first
+                                    : nil,
+                                  recipe: recipeList[i],
+                                  namespace: namespace
+                )
                     .zIndex(1)
                     .transition(.asymmetric(
                         insertion: .opacity.animation(.easeInOut(duration: 0.3)),
@@ -171,12 +159,15 @@ extension HomeView {
 }
 
 extension HomeView {
-    private func setFavValues() {
-        self.recipeList = recipes.compactMap({ favoriteRecipe in
-            if let recipe = favoriteRecipe.getRecipe() {
-                return recipe
-            }
-            return nil
-        })
+    fileprivate func getListData() -> [Recipe] {
+        return isFavorite ? recipeModel.recipeListData : recipeModel.recipeList
+    }
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+            .environmentObject(ModelObserver())
+            .environmentObject(RecipeObserver())
     }
 }
