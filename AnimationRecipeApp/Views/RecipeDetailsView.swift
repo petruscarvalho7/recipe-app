@@ -16,11 +16,9 @@ struct RecipeDetailsView: View {
     @State var isFavorite = false
     @State var appear = [false, false, false]
     @State var favRecipeData: FavoriteRecipes?
+    var delegate: RecipeDelegate
     var recipe: Recipe = recipesMock[0]
     var namespace: Namespace.ID
-    
-    // SwiftData
-    @Environment(\.modelContext) private var context
     
     var body: some View {
         ZStack {
@@ -51,6 +49,7 @@ struct RecipeDetailsView: View {
     }
 }
 
+// subviews
 extension RecipeDetailsView {
     var button: some View {
         Button {
@@ -252,19 +251,12 @@ extension RecipeDetailsView {
                     .opacity(appear[1] ? 1 : 0)
                     .onTapGesture {
                         withAnimation(.spring) {
-                            do {
-                                let favRecipe = FavoriteRecipes(recipe: recipe)
-                                if !isFavorite {
-                                    // Insert a new recipe
-                                    context.insert(favRecipe)
-                                    try context.save()
-                                } else {
-                                    if let favToDelete = favRecipeData {
-                                        close()
-                                        context.delete(favToDelete)
-                                    }
-                                }
-                            } catch { print(error) }
+                            if isFavorite {
+                                delegate.removeFavRecipe(favRecipeData: favRecipeData)
+                                close()
+                            } else {
+                                delegate.saveFavRecipe(recipe: recipe)
+                            }
                             isFavorite = !isFavorite
                         }
                     }
@@ -344,7 +336,7 @@ struct RecipeDetailsView_Previews: PreviewProvider {
     @Namespace static var namespace
 
     static var previews: some View {
-        RecipeDetailsView(show: .constant(true), namespace: namespace)
+        RecipeDetailsView(show: .constant(true), delegate: HomeView(), namespace: namespace)
             .environmentObject(ModelObserver())
     }
 }

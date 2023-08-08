@@ -8,6 +8,11 @@
 import SwiftUI
 import SwiftData
 
+protocol RecipeDelegate {
+    func saveFavRecipe(recipe: Recipe?)
+    func removeFavRecipe(favRecipeData: FavoriteRecipes?)
+}
+
 struct HomeView: View {
     @EnvironmentObject var model: ModelObserver
     @EnvironmentObject var recipeModel: RecipeObserver
@@ -21,6 +26,9 @@ struct HomeView: View {
     @State var isFavorite = false
     @State var title = "Home"
     @Query var recipes: [FavoriteRecipes]
+    
+    // SwiftData
+    @Environment(\.modelContext) private var context
     
     var body: some View {
         let recipeList = getListData()
@@ -82,7 +90,6 @@ struct HomeView: View {
             }
         }
         .onAppear {
-            print(recipeList.count)
             recipeModel.recipeListTask(isFavorite: isFavorite, recipes: recipes)
         }
         .statusBarHidden(!showStatusBar)
@@ -98,6 +105,7 @@ struct HomeView: View {
     }
 }
 
+// subviews
 extension HomeView {
     var scrollDetection: some View {
         GeometryReader { proxy in
@@ -146,6 +154,7 @@ extension HomeView {
                                   favRecipeData: favRecipe && recipes.count > 0
                                     ? recipeExists.first
                                     : nil,
+                                  delegate: self,
                                   recipe: recipeList[i],
                                   namespace: namespace
                 )
@@ -161,6 +170,25 @@ extension HomeView {
 extension HomeView {
     fileprivate func getListData() -> [Recipe] {
         return isFavorite ? recipeModel.recipeListData : recipeModel.recipeList
+    }
+}
+
+extension HomeView: RecipeDelegate {
+    func saveFavRecipe(recipe: Recipe?) {
+        do {
+            guard let recipeData = recipe else { return }
+            let favRecipe = FavoriteRecipes(recipe: recipeData)
+            // Insert a new recipe
+            context.insert(favRecipe)
+            try context.save()
+        } catch { print(error) }
+    }
+    
+    func removeFavRecipe(favRecipeData: FavoriteRecipes?) {
+        // Delete recipe
+        if let favToDelete = favRecipeData {
+            context.delete(favToDelete)
+        }
     }
 }
 

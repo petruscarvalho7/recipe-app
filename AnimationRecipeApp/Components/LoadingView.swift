@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct LoadingView: View {
-    let timer = Timer.publish(every: 1.2, on: .main, in: .common).autoconnect()
+    let timer: Timer.TimerPublisher = Timer.publish(every: 1.2, on: .main, in: .common)
+    @State var connectedTimer: Cancellable? = nil
     @State var leftOffset: CGFloat = -100
     @State var rightOffset: CGFloat = 100
     @State var hasLoadingText = true
@@ -41,6 +43,12 @@ struct LoadingView: View {
                     .offset(x: leftOffset)
                     .opacity(0.7)
                     .animation(.easeInOut(duration: 1).delay(0.4), value: leftOffset)
+            }
+            .onAppear {
+                self.connectedTimer = timer.connect()
+            }
+            .onDisappear {
+                self.connectedTimer?.cancel()
             }
             .frame(width: geo.size.width, height: geo.size.height)
             .onReceive(timer) { (_) in
