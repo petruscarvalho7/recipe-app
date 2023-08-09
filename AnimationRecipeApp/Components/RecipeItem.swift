@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct RecipeItem: View {
     @Binding var show: Bool
@@ -40,8 +41,9 @@ struct RecipeItem: View {
         }
         .foregroundStyle(.white)
         .background(
-            AsyncImage(
+            CachedAsyncImage(
                 url: recipe.getImageThumbnail(),
+                urlCache: .imageCache,
                 content: { image in
                     image
                         .resizable()

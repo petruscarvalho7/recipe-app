@@ -8,9 +8,9 @@
 import SwiftUI
 import Combine
 
-enum Modal: String {
-    case signUp
-    case signIn
+enum LoggedInOut: String {
+    case loggedIn
+    case onboarding
 }
 
 class ModelObserver: ObservableObject {
@@ -21,7 +21,7 @@ class ModelObserver: ObservableObject {
     @Published var showNav: Bool = true
     
     // Modal
-    @Published var selectedModal: Modal = .signUp
+    @Published var loggedInOut: LoggedInOut = .onboarding
     @Published var showModal: Bool = false
     @Published var dismissModal: Bool = false
     

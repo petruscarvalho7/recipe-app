@@ -33,6 +33,20 @@
 		F457D5842A7E7FAF00FE2C88 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457D5762A7E7FAF00FE2C88 /* HomeView.swift */; };
 		F457D5862A7E7FAF00FE2C88 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F457D5782A7E7FAF00FE2C88 /* RecipeDetailsView.swift */; };
 		F457D5892A7E802E00FE2C88 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F457D5882A7E802E00FE2C88 /* Alamofire */; };
+		F461C7A42A83945A00267E9A /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = F461C7A32A83945A00267E9A /* CachedAsyncImage */; };
+		F461C7A72A8394B200267E9A /* URLCache+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7A62A8394B200267E9A /* URLCache+Extension.swift */; };
+		F461C7AB2A839F4900267E9A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7AA2A839F4900267E9A /* LoginView.swift */; };
+		F461C7AD2A83A00400267E9A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7AC2A83A00400267E9A /* View+Extension.swift */; };
+		F461C7AF2A83A2F800267E9A /* InputTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7AE2A83A2F800267E9A /* InputTF.swift */; };
+		F461C7B12A83A81800267E9A /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7B02A83A81800267E9A /* GradientButton.swift */; };
+		F461C7B32A83B3D500267E9A /* LoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7B22A83B3D500267E9A /* LoggedInView.swift */; };
+		F461C7B52A83BC2300267E9A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7B42A83BC2300267E9A /* SignUpView.swift */; };
+		F461C7B72A83BF5000267E9A /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7B62A83BF5000267E9A /* ForgotPasswordView.swift */; };
+		F461C7B92A83C3D700267E9A /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7B82A83C3D700267E9A /* PasswordResetView.swift */; };
+		F461C7BB2A83C54B00267E9A /* OTPConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BA2A83C54B00267E9A /* OTPConfirmationView.swift */; };
+		F461C7BD2A83C67300267E9A /* OTPVerificationTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BC2A83C67300267E9A /* OTPVerificationTF.swift */; };
+		F461C7BF2A83CD4B00267E9A /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BE2A83CD4B00267E9A /* Binding+Extension.swift */; };
+		F4E91F1D2A83E3BF0068C6A0 /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = F4E91F1C2A83E3BF0068C6A0 /* NavigationTransitions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +95,18 @@
 		F457D5742A7E7FAF00FE2C88 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		F457D5762A7E7FAF00FE2C88 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F457D5782A7E7FAF00FE2C88 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
+		F461C7A62A8394B200267E9A /* URLCache+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+Extension.swift"; sourceTree = "<group>"; };
+		F461C7AA2A839F4900267E9A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F461C7AC2A83A00400267E9A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		F461C7AE2A83A2F800267E9A /* InputTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTF.swift; sourceTree = "<group>"; };
+		F461C7B02A83A81800267E9A /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		F461C7B22A83B3D500267E9A /* LoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInView.swift; sourceTree = "<group>"; };
+		F461C7B42A83BC2300267E9A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		F461C7B62A83BF5000267E9A /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		F461C7B82A83C3D700267E9A /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		F461C7BA2A83C54B00267E9A /* OTPConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPConfirmationView.swift; sourceTree = "<group>"; };
+		F461C7BC2A83C67300267E9A /* OTPVerificationTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationTF.swift; sourceTree = "<group>"; };
+		F461C7BE2A83CD4B00267E9A /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +115,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F457D5892A7E802E00FE2C88 /* Alamofire in Frameworks */,
+				F4E91F1D2A83E3BF0068C6A0 /* NavigationTransitions in Frameworks */,
+				F461C7A42A83945A00267E9A /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				F457D53C2A7E7F9600FE2C88 /* AnimationRecipeApp.swift */,
+				F461C7A52A83949C00267E9A /* Helpers */,
 				F457D5752A7E7FAF00FE2C88 /* Views */,
 				F457D56B2A7E7FAF00FE2C88 /* Components */,
 				F457D56D2A7E7FAF00FE2C88 /* Model */,
@@ -194,6 +223,9 @@
 				F457D56C2A7E7FAF00FE2C88 /* RecipeItem.swift */,
 				F44A1A1B2A7FD49700795670 /* LoadingView.swift */,
 				F42684F52A811FB2000F4073 /* FavoriteEmptyView.swift */,
+				F461C7AE2A83A2F800267E9A /* InputTF.swift */,
+				F461C7B02A83A81800267E9A /* GradientButton.swift */,
+				F461C7BC2A83C67300267E9A /* OTPVerificationTF.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -223,11 +255,43 @@
 			isa = PBXGroup;
 			children = (
 				F457D53E2A7E7F9600FE2C88 /* ContentView.swift */,
+				F461C7A92A839F2300267E9A /* Onboarding */,
+				F461C7A82A839EFC00267E9A /* LoggedIn */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F461C7A52A83949C00267E9A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F461C7A62A8394B200267E9A /* URLCache+Extension.swift */,
+				F461C7AC2A83A00400267E9A /* View+Extension.swift */,
+				F461C7BE2A83CD4B00267E9A /* Binding+Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F461C7A82A839EFC00267E9A /* LoggedIn */ = {
+			isa = PBXGroup;
+			children = (
+				F461C7B22A83B3D500267E9A /* LoggedInView.swift */,
 				F457D5762A7E7FAF00FE2C88 /* HomeView.swift */,
 				F457D5782A7E7FAF00FE2C88 /* RecipeDetailsView.swift */,
 				F42513772A7EA56F007ABE71 /* ProfileView.swift */,
 			);
-			path = Views;
+			path = LoggedIn;
+			sourceTree = "<group>";
+		};
+		F461C7A92A839F2300267E9A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F461C7AA2A839F4900267E9A /* LoginView.swift */,
+				F461C7B42A83BC2300267E9A /* SignUpView.swift */,
+				F461C7B62A83BF5000267E9A /* ForgotPasswordView.swift */,
+				F461C7B82A83C3D700267E9A /* PasswordResetView.swift */,
+				F461C7BA2A83C54B00267E9A /* OTPConfirmationView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		F4BC8F4C2A815D15004B61B7 /* Observer */ = {
@@ -257,6 +321,8 @@
 			name = AnimationRecipeApp;
 			packageProductDependencies = (
 				F457D5882A7E802E00FE2C88 /* Alamofire */,
+				F461C7A32A83945A00267E9A /* CachedAsyncImage */,
+				F4E91F1C2A83E3BF0068C6A0 /* NavigationTransitions */,
 			);
 			productName = AnimationRecipeApp;
 			productReference = F457D5392A7E7F9600FE2C88 /* AnimationRecipeApp.app */;
@@ -332,6 +398,8 @@
 			mainGroup = F457D5302A7E7F9600FE2C88;
 			packageReferences = (
 				F457D5872A7E802E00FE2C88 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F461C7A22A83945A00267E9A /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				F4E91F1B2A83E3BF0068C6A0 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */,
 			);
 			productRefGroup = F457D53A2A7E7F9600FE2C88 /* Products */;
 			projectDirPath = "";
@@ -380,16 +448,28 @@
 				F457D57A2A7E7FAF00FE2C88 /* Styles.swift in Sources */,
 				F42684F82A8158BC000F4073 /* RecipeObserver.swift in Sources */,
 				F457D53F2A7E7F9600FE2C88 /* ContentView.swift in Sources */,
+				F461C7AD2A83A00400267E9A /* View+Extension.swift in Sources */,
 				F457D5842A7E7FAF00FE2C88 /* HomeView.swift in Sources */,
 				F457D57E2A7E7FAF00FE2C88 /* Recipe.swift in Sources */,
 				F457D57D2A7E7FAF00FE2C88 /* RecipeItem.swift in Sources */,
+				F461C7A72A8394B200267E9A /* URLCache+Extension.swift in Sources */,
+				F461C7AB2A839F4900267E9A /* LoginView.swift in Sources */,
+				F461C7B72A83BF5000267E9A /* ForgotPasswordView.swift in Sources */,
+				F461C7B32A83B3D500267E9A /* LoggedInView.swift in Sources */,
 				F44A1A1E2A7FD7F300795670 /* FavoriteRecipes+Data.swift in Sources */,
 				F457D5802A7E7FAF00FE2C88 /* PreferenceKeys.swift in Sources */,
+				F461C7BB2A83C54B00267E9A /* OTPConfirmationView.swift in Sources */,
 				F457D5862A7E7FAF00FE2C88 /* RecipeDetailsView.swift in Sources */,
+				F461C7B92A83C3D700267E9A /* PasswordResetView.swift in Sources */,
 				F42513782A7EA56F007ABE71 /* ProfileView.swift in Sources */,
+				F461C7B52A83BC2300267E9A /* SignUpView.swift in Sources */,
+				F461C7B12A83A81800267E9A /* GradientButton.swift in Sources */,
+				F461C7BF2A83CD4B00267E9A /* Binding+Extension.swift in Sources */,
+				F461C7BD2A83C67300267E9A /* OTPVerificationTF.swift in Sources */,
 				F457D57B2A7E7FAF00FE2C88 /* Animations.swift in Sources */,
 				F457D57C2A7E7FAF00FE2C88 /* AnimatableFontModifier.swift in Sources */,
 				F457D5812A7E7FAF00FE2C88 /* Tab.swift in Sources */,
+				F461C7AF2A83A2F800267E9A /* InputTF.swift in Sources */,
 				F457D5822A7E7FAF00FE2C88 /* TabBar.swift in Sources */,
 				F457D53D2A7E7F9600FE2C88 /* AnimationRecipeApp.swift in Sources */,
 				F457D57F2A7E7FAF00FE2C88 /* ModelObserver.swift in Sources */,
@@ -553,6 +633,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AnimationRecipeApp/Preview Content\"";
+				DEVELOPMENT_TEAM = R29K2K8FTN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -582,6 +663,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AnimationRecipeApp/Preview Content\"";
+				DEVELOPMENT_TEAM = R29K2K8FTN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -725,6 +807,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F461C7A22A83945A00267E9A /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+		F4E91F1B2A83E3BF0068C6A0 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/davdroman/swiftui-navigation-transitions";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -732,6 +830,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F457D5872A7E802E00FE2C88 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		F461C7A32A83945A00267E9A /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F461C7A22A83945A00267E9A /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+		F4E91F1C2A83E3BF0068C6A0 /* NavigationTransitions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4E91F1B2A83E3BF0068C6A0 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */;
+			productName = NavigationTransitions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
