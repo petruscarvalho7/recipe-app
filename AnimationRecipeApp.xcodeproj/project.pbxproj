@@ -46,7 +46,6 @@
 		F461C7BB2A83C54B00267E9A /* OTPConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BA2A83C54B00267E9A /* OTPConfirmationView.swift */; };
 		F461C7BD2A83C67300267E9A /* OTPVerificationTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BC2A83C67300267E9A /* OTPVerificationTF.swift */; };
 		F461C7BF2A83CD4B00267E9A /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BE2A83CD4B00267E9A /* Binding+Extension.swift */; };
-		F4E91F1D2A83E3BF0068C6A0 /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = F4E91F1C2A83E3BF0068C6A0 /* NavigationTransitions */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +114,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F457D5892A7E802E00FE2C88 /* Alamofire in Frameworks */,
-				F4E91F1D2A83E3BF0068C6A0 /* NavigationTransitions in Frameworks */,
 				F461C7A42A83945A00267E9A /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,7 +320,6 @@
 			packageProductDependencies = (
 				F457D5882A7E802E00FE2C88 /* Alamofire */,
 				F461C7A32A83945A00267E9A /* CachedAsyncImage */,
-				F4E91F1C2A83E3BF0068C6A0 /* NavigationTransitions */,
 			);
 			productName = AnimationRecipeApp;
 			productReference = F457D5392A7E7F9600FE2C88 /* AnimationRecipeApp.app */;
@@ -835,11 +832,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F461C7A22A83945A00267E9A /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
-		};
-		F4E91F1C2A83E3BF0068C6A0 /* NavigationTransitions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4E91F1B2A83E3BF0068C6A0 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */;
-			productName = NavigationTransitions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
