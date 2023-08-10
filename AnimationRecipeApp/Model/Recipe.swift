@@ -29,19 +29,15 @@ struct Recipe: Codable, Identifiable {
     var id: UUID?
     let uri: String
     let label: String
-//    let image: String
     let images: ImagesResponse
-//    let source: String
-//    let url: String
     let yield: Int
     let healthLabels: [String]
-//    let ingredientLines: [String]
-//    let ingredients: [Ingredient]
-//    let totalWeight: Double
-//    let totalTime: Int
-//    let cuisineType: [String]
     let totalNutrients: [String: Total]
-//    let digest: [Digest]
+    var offset: CGFloat? = 0
+    
+    mutating func changeOffSet(offSet: CGFloat) {
+        self.offset = offSet
+    }
     
     func getServings() -> String {
         return yield.description + " servings"

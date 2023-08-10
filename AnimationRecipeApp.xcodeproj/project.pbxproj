@@ -46,6 +46,7 @@
 		F461C7BB2A83C54B00267E9A /* OTPConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BA2A83C54B00267E9A /* OTPConfirmationView.swift */; };
 		F461C7BD2A83C67300267E9A /* OTPVerificationTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BC2A83C67300267E9A /* OTPVerificationTF.swift */; };
 		F461C7BF2A83CD4B00267E9A /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BE2A83CD4B00267E9A /* Binding+Extension.swift */; };
+		F475CC8E2A854D540021088A /* RecipeEmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F475CC8D2A854D540021088A /* RecipeEmptyList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		F461C7BA2A83C54B00267E9A /* OTPConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPConfirmationView.swift; sourceTree = "<group>"; };
 		F461C7BC2A83C67300267E9A /* OTPVerificationTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationTF.swift; sourceTree = "<group>"; };
 		F461C7BE2A83CD4B00267E9A /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
+		F475CC8D2A854D540021088A /* RecipeEmptyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEmptyList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				F461C7AE2A83A2F800267E9A /* InputTF.swift */,
 				F461C7B02A83A81800267E9A /* GradientButton.swift */,
 				F461C7BC2A83C67300267E9A /* OTPVerificationTF.swift */,
+				F475CC8D2A854D540021088A /* RecipeEmptyList.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				F44A1A1A2A7FB1DE00795670 /* RecipeAPI.swift in Sources */,
 				F457D57A2A7E7FAF00FE2C88 /* Styles.swift in Sources */,
 				F42684F82A8158BC000F4073 /* RecipeObserver.swift in Sources */,
+				F475CC8E2A854D540021088A /* RecipeEmptyList.swift in Sources */,
 				F457D53F2A7E7F9600FE2C88 /* ContentView.swift in Sources */,
 				F461C7AD2A83A00400267E9A /* View+Extension.swift in Sources */,
 				F457D5842A7E7FAF00FE2C88 /* HomeView.swift in Sources */,

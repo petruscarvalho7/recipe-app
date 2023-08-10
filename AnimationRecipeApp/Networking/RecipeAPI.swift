@@ -58,6 +58,7 @@ class RecipeAPILogic: RecipeAPI {
                 if let recipesList = recipeResponse.hits?.map({ hit in
                     var recipe: Recipe = hit.recipe
                     recipe.id = UUID()
+                    recipe.offset = 0
                     return recipe
                 }) {
                     completion(.success(recipesList))

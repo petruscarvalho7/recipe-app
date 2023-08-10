@@ -14,9 +14,14 @@ protocol RecipeDelegate {
 }
 
 struct HomeView: View {
+    // SwiftData
+    @Environment(\.modelContext) private var context
+    
     @EnvironmentObject var model: ModelObserver
     @EnvironmentObject var recipeModel: RecipeObserver
+    
     @Namespace var namespace
+    
     @State var showStatusBar = true
     @State var selectedIndex = 0
     @State var hasScrolled = false
@@ -27,8 +32,7 @@ struct HomeView: View {
     @State var title = "Home"
     @Query var recipes: [FavoriteRecipes]
     
-    // SwiftData
-    @Environment(\.modelContext) private var context
+    @GestureState var isDragging = false
     
     var body: some View {
         let recipeList = getListData()
@@ -41,8 +45,7 @@ struct HomeView: View {
                 
                 switch recipeModel.recipeStateList {
                 case .isLoading:
-                    LoadingView()
-                        .frame(height: 500)
+                    RecipeEmptyList()
                 case .isEmpty:
                     if isFavorite {
                         FavoriteEmptyView()
@@ -128,24 +131,73 @@ extension HomeView {
     
     var cards: some View {
         let recipeList = getListData()
-        return ForEach(recipeList) { recipe in
-            RecipeItem(show: $show, namespace: namespace, recipe: recipe)
-                .onTapGesture {
-                    withAnimation(.openCard.delay(0.3)) {
-                        model.showDetail.toggle()
-                        showStatusBar = false
-                        selectedID = recipe.id!
-                        show.toggle()
+        return ForEach(recipeList.indices, id: \.self) { index in
+            let recipeExists = hasFavorite(recipeList: recipeList, index)
+            let favRecipe = isFavorite
+                ? isFavorite
+                : recipeExists.isEmpty == false
+            ZStack {
+                Color(favRecipe ? Color.red.opacity(0.8) : Color.green.opacity(0.7))
+                    .cornerRadius(30)
+                
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        withAnimation {
+                            if favRecipe {
+                                removeFavRecipe(favRecipeData: recipeExists.first)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    recipeModel.setDefaultOffset(index: index, isFavorite: isFavorite)
+                                }
+                            } else {
+                                saveFavRecipe(recipe: recipeList[index])
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    recipeModel.setDefaultOffset(index: index, isFavorite: isFavorite)
+                                }
+                            }
+                        }
+                    } label: {
+                        Image(systemName: favRecipe ? "suit.heart.fill" : "suit.heart")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .frame(width: 65)
+                            .vSpacing()
+                    }
+
                 }
+                RecipeItem(show: $show, namespace: namespace, recipe: recipeList[index])
+                    .onTapGesture {
+                        if recipeList[index].offset == 0 {
+                            withAnimation(.openCard.delay(0.3)) {
+                                model.showDetail.toggle()
+                                showStatusBar = false
+                                selectedID = recipeList[index].id!
+                                show.toggle()
+                            }
+                        }
+                    }
+                    // drag gesture
+                    .offset(x: recipeList[index].offset!)
+                    .animation(.easeInOut(duration: 0.45), value: recipeList[index].offset)
+                    .gesture(DragGesture()
+                        .updating($isDragging, body: { (value, state, _) in
+                            state = true
+                            
+                            recipeModel.onChanged(value: value, index: index, isFavorite: isFavorite, isDragging: $isDragging)
+                        }).onEnded({ value in
+                            recipeModel.onEnded(value: value, index: index, isFavorite: isFavorite)
+                        })
+                    )
             }
         }
     }
-
+    
     var detail: some View {
         let recipeList = getListData()
-        return ForEach(recipeList.indices, id: \.self) { i in
-            if recipeList[i].id == selectedID {
-                let recipeExists = recipes.filter { $0.label == recipeList[i].label }
+        return ForEach(recipeList.indices, id: \.self) { index in
+            if recipeList[index].id == selectedID {
+                let recipeExists = hasFavorite(recipeList: recipeList, index)
                 let favRecipe = isFavorite
                     ? isFavorite
                     : recipeExists.isEmpty == false
@@ -155,7 +207,7 @@ extension HomeView {
                                     ? recipeExists.first
                                     : nil,
                                   delegate: self,
-                                  recipe: recipeList[i],
+                                  recipe: recipeList[index],
                                   namespace: namespace
                 )
                     .zIndex(1)
@@ -167,16 +219,22 @@ extension HomeView {
     }
 }
 
+// aux methods
 extension HomeView {
     fileprivate func getListData() -> [Recipe] {
         return isFavorite ? recipeModel.recipeListData : recipeModel.recipeList
+    }
+    
+    fileprivate func hasFavorite(recipeList: [Recipe], _ i: Array<Recipe>.Index) -> [FavoriteRecipes] {
+        return recipes.filter { $0.label == recipeList[i].label }
     }
 }
 
 extension HomeView: RecipeDelegate {
     func saveFavRecipe(recipe: Recipe?) {
         do {
-            guard let recipeData = recipe else { return }
+            guard var recipeData = recipe else { return }
+            recipeData.offset = 0
             let favRecipe = FavoriteRecipes(recipe: recipeData)
             // Insert a new recipe
             context.insert(favRecipe)

@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var isKeyboardShowing: Bool = false
     
     var body: some View {
-        if model.loggedInOut == .onboarding {
+        if model.loggedInOut != .onboarding {
             // Onboarding stack
             NavigationStack {
                 LoginView(showSignup: $showSignup)

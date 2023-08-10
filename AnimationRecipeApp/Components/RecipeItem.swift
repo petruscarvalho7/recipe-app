@@ -16,7 +16,7 @@ struct RecipeItem: View {
     
     var body: some View {
         VStack {
-            Spacer()
+            Spacer(minLength: 0)
             VStack(alignment: .leading, spacing: 12) {
                 Text(recipe.label)
                     .font(.largeTitle.weight(.bold))
@@ -74,7 +74,9 @@ struct RecipeItem: View {
             RoundedRectangle(cornerRadius: 30, style: .continuous)
                 .matchedGeometryEffect(id: "mask\(recipe.label)", in: namespace)
               )
-        .frame(height: 300)
+        .frame(height: 280)
+        .shadow(color: Color.black.opacity(0.08), radius: 5, x: 5, y: 5)
+        .shadow(color: Color.black.opacity(0.08), radius: 5, x: -5, y: -5)
     }
 }
 

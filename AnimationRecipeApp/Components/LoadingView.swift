@@ -13,17 +13,9 @@ struct LoadingView: View {
     @State var connectedTimer: Cancellable? = nil
     @State var leftOffset: CGFloat = -100
     @State var rightOffset: CGFloat = 100
-    @State var hasLoadingText = true
     
     var body: some View {
         GeometryReader { geo in
-            if hasLoadingText {
-                Text("Loading...")
-                    .font(.title)
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.teal)
-            }
             ZStack {
                 Circle()
                     .fill(Color.teal)
@@ -55,7 +47,6 @@ struct LoadingView: View {
                 swap(&self.leftOffset, &self.rightOffset)
             }
         }
-        .frame(height: 300)
     }
 }
 
