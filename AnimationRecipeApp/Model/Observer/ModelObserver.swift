@@ -21,7 +21,7 @@ class ModelObserver: ObservableObject {
     @Published var showNav: Bool = true
     
     // Modal
-    @Published var loggedInOut: LoggedInOut = .onboarding
+    @Published var loggedInOut: LoggedInOut = .loggedIn
     @Published var showModal: Bool = false
     @Published var dismissModal: Bool = false
     

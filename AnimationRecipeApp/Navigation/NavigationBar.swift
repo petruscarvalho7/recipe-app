@@ -9,8 +9,8 @@ import SwiftUI
 
 struct NavigationBar: View {
     @Binding var hasScrolled: Bool
-    @State var showSearch  = false
-    @State var showAccount = false
+    @State var showSearch = false
+    @State private var searchText: String = ""
     var title = ""
     
     var body: some View {
@@ -20,34 +20,68 @@ struct NavigationBar: View {
                 .blur(radius: 10)
                 .opacity(hasScrolled ? 1 : 0)
             
-            Text(title)
-                .animatableFont(size: hasScrolled ? 22 : 34, weight: .bold)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-                .padding(.top, 20)
-                .offset(y: hasScrolled ? 4 : 0)
-            
-            HStack(spacing: 16) {
-                Button {
-                    showSearch = true
-                } label: {
-                Image(systemName: "magnifyingglass")
-                    .font(.system(size: 17, weight: .bold))
-                    .frame(width: 36, height: 36)
-                    .foregroundColor(.secondary)
-                    .background(.ultraThinMaterial, in:
-                     RoundedRectangle(cornerRadius: 14, style: .continuous))
-                    .strokeStyle(cornerRadius: 14)
-                }
-                .sheet(isPresented: $showSearch) {
-                    //SearchView()
-                }
+            if !showSearch {
+                Text(title)
+                    .animatableFont(size: hasScrolled ? 22 : 34, weight: .bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 20)
+                    .padding(.top, 20)
+                    .offset(y: hasScrolled ? 4 : 0)
             }
+            
+            Spacer(minLength: 0)
+            
+            HStack {
+                if showSearch {
+                    Image(systemName: "magnifyingglass")
+                        .font(.system(size: 17, weight: .bold))
+                        .frame(width: 45, height: 45)
+                        .foregroundColor(.gray)
+                    
+                    TextField("",
+                              text: $searchText,
+                              prompt: Text("Search recipes...")
+                        .foregroundColor(.gray)
+                    )
+                    .foregroundColor(.gray)
+                    .foregroundStyle(.gray)
+                    
+                    Button {
+                        searchText = ""
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            showSearch.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.gray)
+                    }
+                    .padding(.trailing, 10)
+                } else {
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            showSearch.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                            .font(.system(size: 17, weight: .bold))
+                            .frame(width: 45, height: 45)
+                            .foregroundColor(.gray)
+                            .background(.ultraThinMaterial, in:
+                                            RoundedRectangle(cornerRadius: 14, style: .continuous))
+                            .strokeStyle(cornerRadius: 14)
+                    }
+                    .clipShape(Circle())
+                }
+                
+            }
+            .background(hasScrolled ? .white : .orange.opacity(0.5))
+            .cornerRadius(30)
+            .padding(.horizontal, 20)
             .frame(maxWidth: .infinity, alignment: .trailing)
-            .padding(.trailing, 20)
             .padding(.top, 20)
             .offset(y: hasScrolled ? 4 : 0)
         }
+        .zIndex(0)
         .frame(height: hasScrolled ? 44 : 70)
         .frame(maxHeight: .infinity, alignment: .top)
     }
@@ -55,6 +89,6 @@ struct NavigationBar: View {
 
 struct NavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationBar(hasScrolled: .constant(true), title: "Featured")
+        NavigationBar(hasScrolled: .constant(false), title: "Featured")
     }
 }
