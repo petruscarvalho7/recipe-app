@@ -20,14 +20,15 @@ class RecipeObserver {
     var recipeList: [Recipe] = []
     var recipeListData: [Recipe] = []
     
-    func recipeListTask(isFavorite: Bool, recipes: [FavoriteRecipes]) {
+    func recipeListTask(isFavorite: Bool, recipes: [FavoriteRecipes], searchText: String = "pasta", isRefreshing: Bool = false) {
         if isFavorite {
             setFavValues(recipes: recipes)
         } else {
+            print("HEREEE: \(searchText)")
             recipeStateList = .isLoading
-            if recipeList.count == 0 {
+            if isRefreshing {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                    self.fetchRecipeList()
+                    self.fetchRecipeList(searchText)
                 }
             } else {
                 recipeStateList = .hasList
@@ -49,7 +50,7 @@ class RecipeObserver {
         }
     }
     
-    private func fetchRecipeList(searchText: String = "pasta") {
+    private func fetchRecipeList(_ searchText: String) {
         RecipeAPILogic.shared.searchRecipe(textQuery: searchText) { [self] result in
             switch result {
             case .success(let recipesList):

@@ -22,7 +22,6 @@ struct ProfileEditView: View {
 extension ProfileEditView {
     var backButton : some View {
         Button(action: {
-            print("BACKBUTTON")
             dismiss()
         }) {
             Image(systemName: "arrow.left.circle.fill")

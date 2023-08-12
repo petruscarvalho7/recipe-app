@@ -11,6 +11,8 @@ struct NavigationBar: View {
     @Binding var hasScrolled: Bool
     @State var showSearch = false
     @State private var searchText: String = ""
+    
+    var onSubmit: (_ text: String) -> ()
     var title = ""
     
     var body: some View {
@@ -43,6 +45,14 @@ struct NavigationBar: View {
                               prompt: Text("Search recipes...")
                         .foregroundColor(.gray)
                     )
+                    .onSubmit {
+                        guard searchText.count > 3 else { return }
+                        onSubmit(searchText)
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            showSearch.toggle()
+                            searchText = ""
+                        }
+                    }
                     .foregroundColor(.gray)
                     .foregroundStyle(.gray)
                     
@@ -89,6 +99,8 @@ struct NavigationBar: View {
 
 struct NavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationBar(hasScrolled: .constant(false), title: "Featured")
+        NavigationBar(hasScrolled: .constant(false), onSubmit: { text in
+            print(text)
+        }, title: "Featured")
     }
 }

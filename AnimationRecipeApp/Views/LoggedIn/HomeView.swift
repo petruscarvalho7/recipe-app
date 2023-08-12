@@ -85,7 +85,17 @@ struct HomeView: View {
                 Color.clear.frame(height: 70)
             })
             .overlay(
-                NavigationBar(hasScrolled: $hasScrolled, title: title)
+                NavigationBar(
+                    hasScrolled: $hasScrolled,
+                    onSubmit: { text in
+                        recipeModel.recipeListTask(
+                            isFavorite: isFavorite,
+                            recipes: recipes,
+                            searchText: text,
+                            isRefreshing: true
+                        )
+                    },
+                    title: title)
             )
             
             if show, !recipeList.isEmpty {
@@ -93,7 +103,11 @@ struct HomeView: View {
             }
         }
         .onAppear {
-            recipeModel.recipeListTask(isFavorite: isFavorite, recipes: recipes)
+            recipeModel.recipeListTask(
+                isFavorite: isFavorite,
+                recipes: recipes,
+                isRefreshing: recipeModel.recipeList.isEmpty
+            )
         }
         .statusBarHidden(!showStatusBar)
         .onChange(of: show) { oldState, newState in
