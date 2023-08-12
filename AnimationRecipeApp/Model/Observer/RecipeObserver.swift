@@ -24,7 +24,6 @@ class RecipeObserver {
         if isFavorite {
             setFavValues(recipes: recipes)
         } else {
-            print("HEREEE: \(searchText)")
             recipeStateList = .isLoading
             if isRefreshing {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4) {

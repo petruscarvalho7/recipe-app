@@ -16,7 +16,6 @@ struct ProfileView: View {
     @Binding var selectedTab: Tab
     // fields
     @State var user: User = User.MOCK_USER
-    @State var showImagePicker: Bool = false
     // enable textfields
 //    @State private var disableEmail = true
 //    @State private var disableName = true
@@ -56,20 +55,7 @@ struct ProfileView: View {
                 )
                 
                 VStack(spacing: 40) {
-                    Button(action: {
-                        withAnimation {
-                            showImagePicker.toggle()
-                        }
-                    }, label: {
-                        Image(user.profileImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 150, height: 150)
-                            .foregroundColor(.gray)
-                            .background(Color.primary)
-                            .clipShape(Circle())
-                            .shadow(color: .blue, radius: 20, x: 0.0, y: 0.0)
-                    })
+                    ProfileImage(profileImage: user.profileImage)
                     
                     VStack(spacing: 10) {
                         Text(user.fullname)
@@ -190,28 +176,7 @@ struct ProfileView: View {
 //                .font(.footnote)
 //                .foregroundColor(.red)
         }
-        .actionSheet(isPresented: $showImagePicker, content: {
-            SheetImageSheet
-        })
         .ignoresSafeArea()
-    }
-}
-
-extension ProfileView {
-    var SheetImageSheet: ActionSheet {
-        ActionSheet(
-            title: Text("Do you want to change your profile picture?"),
-            message: Text("Choose the option"),
-            buttons: [
-                .default(Text("Take Picture"), action: {}),
-                .default(Text("Gallery"), action: {}),
-                .destructive(Text("Cancel"), action: {
-                    withAnimation {
-                        showImagePicker = false
-                    }
-                })
-            ]
-        )
     }
 }
 

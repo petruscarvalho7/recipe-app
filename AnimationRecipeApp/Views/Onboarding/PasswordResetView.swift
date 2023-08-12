@@ -13,6 +13,8 @@ struct PasswordResetView: View {
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
     
+    var titleButtonText: String = "Reset Password"
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             Button {
@@ -24,7 +26,7 @@ struct PasswordResetView: View {
             }
             .padding(.top, 10)
             
-            Text("Reset Password")
+            Text(titleButtonText)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .padding(.top, 5)
@@ -35,7 +37,7 @@ struct PasswordResetView: View {
                 InputTF(iconName: "lock", hint: "Confirm password...", isPassword: true, value: $confirmPassword)
                 
                 // LoginButton
-                GradientButton(title: "Reset Password", iconName: "arrow.right") {
+                GradientButton(title: titleButtonText, iconName: "arrow.right") {
           
                 }
                 .hSpacing(.trailing)

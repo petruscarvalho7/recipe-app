@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     @Binding var showSignup: Bool
-    @State private var username: String = ""
+    @State private var fullname: String = ""
     @State private var email: String = ""
     @State private var pass: String = ""
     
@@ -42,7 +42,7 @@ struct SignUpView: View {
             
             VStack(spacing: 25) {
                 // textfields
-                InputTF(iconName: "person", hint: "Username...", value: $username)
+                InputTF(iconName: "person", hint: "Fullname...", value: $fullname)
                 InputTF(iconName: "at", hint: "Email...", value: $email)
                 InputTF(iconName: "lock", hint: "Password...", isPassword: true, value: $pass)
                     .padding(.top, 5)
@@ -52,7 +52,7 @@ struct SignUpView: View {
                     askOTP.toggle()
                 }
                 .hSpacing(.trailing)
-                .disableWithOpacity(email.isEmpty || pass.isEmpty || username.isEmpty)
+                .disableWithOpacity(email.isEmpty || pass.isEmpty || fullname.isEmpty)
             }
             .padding(.top, 20)
             

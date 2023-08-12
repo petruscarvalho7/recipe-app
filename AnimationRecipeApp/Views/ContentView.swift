@@ -48,7 +48,7 @@ struct ContentView: View {
             NavigationStack {
                 LoggedInView()
                     .navigationDestination(for: User.self) { user in
-                        ProfileEditView()
+                        ProfileEditView(user: user)
                     }
             }
         }
