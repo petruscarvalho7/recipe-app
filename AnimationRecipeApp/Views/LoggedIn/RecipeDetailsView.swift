@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipeDetailsView: View {
-    @EnvironmentObject var model: ModelObserver
+    @Environment(ModelObserver.self) var model: ModelObserver
     @Binding var show: Bool
     @State var viewState: CGSize = .zero
     @State var showContent = true
@@ -337,7 +337,7 @@ struct RecipeDetailsView_Previews: PreviewProvider {
 
     static var previews: some View {
         RecipeDetailsView(show: .constant(true), delegate: HomeView(), namespace: namespace)
-            .environmentObject(ModelObserver())
+            .environment(ModelObserver())
     }
 }
 

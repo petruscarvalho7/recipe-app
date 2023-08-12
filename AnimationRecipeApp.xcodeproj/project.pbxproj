@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4191CEA2A87B1B3003D2DE5 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191CE92A87B1B3003D2DE5 /* Environment.swift */; };
+		F4191CEC2A87B2AD003D2DE5 /* DEBUG-Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4191CEB2A87B2AD003D2DE5 /* DEBUG-Keys.plist */; };
+		F4191CEE2A87B2BA003D2DE5 /* PROD-Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4191CED2A87B2BA003D2DE5 /* PROD-Keys.plist */; };
 		F42513782A7EA56F007ABE71 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42513772A7EA56F007ABE71 /* ProfileView.swift */; };
 		F42684F62A811FB2000F4073 /* FavoriteEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42684F52A811FB2000F4073 /* FavoriteEmptyView.swift */; };
 		F42684F82A8158BC000F4073 /* RecipeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42684F72A8158BC000F4073 /* RecipeObserver.swift */; };
@@ -47,6 +50,8 @@
 		F461C7BD2A83C67300267E9A /* OTPVerificationTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BC2A83C67300267E9A /* OTPVerificationTF.swift */; };
 		F461C7BF2A83CD4B00267E9A /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461C7BE2A83CD4B00267E9A /* Binding+Extension.swift */; };
 		F475CC8E2A854D540021088A /* RecipeEmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F475CC8D2A854D540021088A /* RecipeEmptyList.swift */; };
+		F47FBF9F2A87BC9700C650F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FBF9E2A87BC9700C650F2 /* User.swift */; };
+		F47FBFA12A87BDB800C650F2 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FBFA02A87BDB800C650F2 /* ProfileEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F4191CE92A87B1B3003D2DE5 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		F4191CEB2A87B2AD003D2DE5 /* DEBUG-Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DEBUG-Keys.plist"; sourceTree = "<group>"; };
+		F4191CED2A87B2BA003D2DE5 /* PROD-Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PROD-Keys.plist"; sourceTree = "<group>"; };
 		F42513772A7EA56F007ABE71 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F42684F52A811FB2000F4073 /* FavoriteEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEmptyView.swift; sourceTree = "<group>"; };
 		F42684F72A8158BC000F4073 /* RecipeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeObserver.swift; sourceTree = "<group>"; };
@@ -108,6 +116,8 @@
 		F461C7BC2A83C67300267E9A /* OTPVerificationTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationTF.swift; sourceTree = "<group>"; };
 		F461C7BE2A83CD4B00267E9A /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 		F475CC8D2A854D540021088A /* RecipeEmptyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEmptyList.swift; sourceTree = "<group>"; };
+		F47FBF9E2A87BC9700C650F2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F47FBFA02A87BDB800C650F2 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,9 +147,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4191CE82A87B1A3003D2DE5 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				F4191CE92A87B1B3003D2DE5 /* Environment.swift */,
+				F4191CEB2A87B2AD003D2DE5 /* DEBUG-Keys.plist */,
+				F4191CED2A87B2BA003D2DE5 /* PROD-Keys.plist */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
 		F44A1A182A7FB1B400795670 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F4191CE82A87B1A3003D2DE5 /* Environment */,
 				F44A1A192A7FB1DE00795670 /* RecipeAPI.swift */,
 			);
 			path = Networking;
@@ -239,6 +260,7 @@
 				F457D5702A7E7FAF00FE2C88 /* PreferenceKeys.swift */,
 				F457D5712A7E7FAF00FE2C88 /* Tab.swift */,
 				F44A1A1D2A7FD7F300795670 /* FavoriteRecipes+Data.swift */,
+				F47FBF9E2A87BC9700C650F2 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +301,7 @@
 				F457D5762A7E7FAF00FE2C88 /* HomeView.swift */,
 				F457D5782A7E7FAF00FE2C88 /* RecipeDetailsView.swift */,
 				F42513772A7EA56F007ABE71 /* ProfileView.swift */,
+				F47FBFA02A87BDB800C650F2 /* ProfileEditView.swift */,
 			);
 			path = LoggedIn;
 			sourceTree = "<group>";
@@ -419,6 +442,8 @@
 			files = (
 				F457D5442A7E7F9800FE2C88 /* Preview Assets.xcassets in Resources */,
 				F457D5412A7E7F9800FE2C88 /* Assets.xcassets in Resources */,
+				F4191CEC2A87B2AD003D2DE5 /* DEBUG-Keys.plist in Resources */,
+				F4191CEE2A87B2BA003D2DE5 /* PROD-Keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,8 +478,11 @@
 				F457D5842A7E7FAF00FE2C88 /* HomeView.swift in Sources */,
 				F457D57E2A7E7FAF00FE2C88 /* Recipe.swift in Sources */,
 				F457D57D2A7E7FAF00FE2C88 /* RecipeItem.swift in Sources */,
+				F47FBFA12A87BDB800C650F2 /* ProfileEditView.swift in Sources */,
 				F461C7A72A8394B200267E9A /* URLCache+Extension.swift in Sources */,
+				F4191CEA2A87B1B3003D2DE5 /* Environment.swift in Sources */,
 				F461C7AB2A839F4900267E9A /* LoginView.swift in Sources */,
+				F47FBF9F2A87BC9700C650F2 /* User.swift in Sources */,
 				F461C7B72A83BF5000267E9A /* ForgotPasswordView.swift in Sources */,
 				F461C7B32A83B3D500267E9A /* LoggedInView.swift in Sources */,
 				F44A1A1E2A7FD7F300795670 /* FavoriteRecipes+Data.swift in Sources */,

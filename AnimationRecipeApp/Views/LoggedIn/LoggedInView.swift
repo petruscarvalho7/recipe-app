@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoggedInView: View {
-    @EnvironmentObject var model: ModelObserver
+    @Environment(ModelObserver.self) var model: ModelObserver
     @AppStorage("selTab") var selectedTab: Tab = .home
     
     var body: some View {
@@ -38,8 +38,8 @@ struct LoggedInView_Previews: PreviewProvider {
             LoggedInView()
                 .preferredColorScheme(.dark)
         }
-        .environmentObject(ModelObserver())
-        .environmentObject(RecipeObserver())
+        .environment(ModelObserver())
+        .environment(RecipeObserver())
     }
 }
 

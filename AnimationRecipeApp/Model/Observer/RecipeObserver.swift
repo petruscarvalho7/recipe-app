@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Combine
+import Observation
 
 enum RecipeStateList {
     case isLoading
@@ -14,11 +14,11 @@ enum RecipeStateList {
     case hasList
 }
 
-@MainActor
-class RecipeObserver: ObservableObject {
-    @Published var recipeStateList: RecipeStateList = .isLoading
-    @Published var recipeList: [Recipe] = []
-    @Published var recipeListData: [Recipe] = []
+@Observable
+class RecipeObserver {
+    var recipeStateList: RecipeStateList = .isLoading
+    var recipeList: [Recipe] = []
+    var recipeListData: [Recipe] = []
     
     func recipeListTask(isFavorite: Bool, recipes: [FavoriteRecipes]) {
         if isFavorite {

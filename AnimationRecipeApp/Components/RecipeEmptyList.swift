@@ -10,19 +10,19 @@ import SwiftUI
 struct RecipeEmptyList: View {
     var body: some View {
         VStack {
-            LinearGradient(
-                colors: [.teal, .pink, .blue, .yellow],
-                startPoint: .leading,
-                endPoint: .trailing
-            )
-            .mask(
-                Text("Loading...")
-                    .font(Font.system(size: 32, weight: .bold))
-                    .multilineTextAlignment(.center)
-            )
-            .frame(height: 100)
+//            LinearGradient(
+//                colors: [.teal, .pink, .blue, .yellow],
+//                startPoint: .leading,
+//                endPoint: .trailing
+//            )
+//            .mask(
+//                Text("Loading...")
+//                    .font(Font.system(size: 32, weight: .bold))
+//                    .multilineTextAlignment(.center)
+//            )
+//            .frame(height: 100)
             LoadingView()
-                .frame(height: 100)
+                .frame(height: 500)
             Spacer()
             
         }

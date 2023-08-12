@@ -21,7 +21,7 @@ struct TabBar: View {
             }
             .padding(.horizontal, 8)
             .padding(.top, 14)
-            .frame(height: hasHomeIndicator ? 88 : 62, alignment: .top)
+            .frame(height: hasHomeIndicator ? 70 : 52, alignment: .top)
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: hasHomeIndicator ? 34 : 0, style: .continuous))
             .background(
                 selectedTabBackgroundColor()
@@ -31,8 +31,10 @@ struct TabBar: View {
             )
             .strokeStyle(cornerRadius: hasHomeIndicator ? 34 : 0)
             .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, 40)
         .ignoresSafeArea()
         }
+        .padding(.horizontal, 15)
     }
 }
 

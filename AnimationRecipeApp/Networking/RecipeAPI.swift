@@ -26,8 +26,8 @@ class RecipeAPILogic: RecipeAPI {
     
     /// Recipe API URL returning list of recipe with details
     private struct Constants {
-        static let apiKey = "46c0c93f"
-        static let apiToken = "381bb662929a7881cd7067fc5de9d6f0"
+        static let apiKey = ENV.SERVICE_API_KEY
+        static let apiToken = ENV.SERVICE_API_TOKEN
         static let languageLocale = "en-US"
         // base urls
         static let recipeURLBase = "https://api.edamam.com/api/recipes/v2"

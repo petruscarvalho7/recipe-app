@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OTPConfirmationView: View {
-    @EnvironmentObject var model: ModelObserver
+    @Environment(ModelObserver.self) var model: ModelObserver
     @Environment(\.dismiss) private var dismiss
     
     @Binding var otpText: String

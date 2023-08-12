@@ -6,26 +6,27 @@
 //
 
 import SwiftUI
-import Combine
+import Observation
 
 enum LoggedInOut: String {
     case loggedIn
     case onboarding
 }
 
-class ModelObserver: ObservableObject {
+@Observable
+class ModelObserver {
     // Tab Bar
-    @Published var showTab: Bool = true
+    var showTab: Bool = true
      
     // Navigation Bar
-    @Published var showNav: Bool = true
+    var showNav: Bool = true
     
     // Modal
-    @Published var loggedInOut: LoggedInOut = .loggedIn
-    @Published var showModal: Bool = false
-    @Published var dismissModal: Bool = false
+    var loggedInOut: LoggedInOut = .loggedIn
+    var showModal: Bool = false
+    var dismissModal: Bool = false
     
     // Detail View
-    @Published var showDetail: Bool = false
-    @Published var selectedCourse: Int = 0
+    var showDetail: Bool = false
+    var selectedCourse: Int = 0
 }

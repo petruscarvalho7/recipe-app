@@ -10,8 +10,8 @@ import SwiftData
 
 @main
 struct AnimationRecipeApp: App {
-    @StateObject var model = ModelObserver()
-    @StateObject var recipeModel = RecipeObserver()
+    @State var model = ModelObserver()
+    @State var recipeModel = RecipeObserver()
     
     let modelContainer: ModelContainer
         
@@ -26,8 +26,8 @@ struct AnimationRecipeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(model)
-                .environmentObject(recipeModel)
+                .environment(model)
+                .environment(recipeModel)
         }
         .modelContainer(modelContainer)
     }

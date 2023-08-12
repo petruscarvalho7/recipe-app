@@ -22,8 +22,8 @@ struct FavoriteEmptyView: View {
                     .foregroundColor(.red)
             )
             .frame(height: 100)
-            LoadingView()
-                .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+//            LoadingView()
+//                .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
                 
         }
         .frame(height: 500)

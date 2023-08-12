@@ -17,8 +17,8 @@ struct HomeView: View {
     // SwiftData
     @Environment(\.modelContext) private var context
     
-    @EnvironmentObject var model: ModelObserver
-    @EnvironmentObject var recipeModel: RecipeObserver
+    @Environment(ModelObserver.self) var model: ModelObserver
+    @Environment(RecipeObserver.self) var recipeModel: RecipeObserver
     
     @Namespace var namespace
     
@@ -253,7 +253,7 @@ extension HomeView: RecipeDelegate {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(ModelObserver())
-            .environmentObject(RecipeObserver())
+            .environment(ModelObserver())
+            .environment(RecipeObserver())
     }
 }

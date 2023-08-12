@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var model: ModelObserver
+    @Environment(ModelObserver.self) var model: ModelObserver
     
     //Onboarding
     @State private var showSignup: Bool = false
@@ -47,6 +47,9 @@ struct ContentView: View {
         } else {
             NavigationStack {
                 LoggedInView()
+                    .navigationDestination(for: User.self) { user in
+                        ProfileEditView()
+                    }
             }
         }
     }
@@ -73,7 +76,7 @@ struct ContentView_Previews: PreviewProvider {
             ContentView()
                 .preferredColorScheme(.dark)
         }
-        .environmentObject(ModelObserver())
-        .environmentObject(RecipeObserver())
+        .environment(ModelObserver())
+        .environment(RecipeObserver())
     }
 }
