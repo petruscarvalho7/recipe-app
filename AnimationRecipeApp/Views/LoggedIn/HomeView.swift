@@ -198,7 +198,7 @@ extension HomeView {
                         .updating($isDragging, body: { (value, state, _) in
                             state = true
                             
-                            recipeModel.onChanged(value: value, index: index, isFavorite: isFavorite, isDragging: $isDragging)
+                            recipeModel.onChanged(value: value, index: index, isFavorite: isFavorite, isDragging: isDragging)
                         }).onEnded({ value in
                             recipeModel.onEnded(value: value, index: index, isFavorite: isFavorite)
                         })

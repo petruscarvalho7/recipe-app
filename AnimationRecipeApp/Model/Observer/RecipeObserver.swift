@@ -62,9 +62,9 @@ class RecipeObserver {
     }
     
     // DragGestures
-    func onChanged(value: DragGesture.Value, index: Int, isFavorite: Bool, isDragging: GestureState<Bool>) {
+    func onChanged(value: DragGesture.Value, index: Int, isFavorite: Bool, isDragging: Bool) {
         Task {
-            if value.translation.width < 0 && isDragging.wrappedValue {
+            if value.translation.width < 0 && isDragging {
                 if isFavorite {
                     recipeListData[index].offset = value.translation.width
                 } else {
