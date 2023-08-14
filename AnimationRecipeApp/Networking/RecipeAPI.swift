@@ -61,7 +61,9 @@ class RecipeAPILogic: RecipeAPI {
                     recipe.offset = 0
                     return recipe
                 }) {
-                    completion(.success(recipesList))
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+                        completion(.success(recipesList))
+                    }
                 } else {
                     completion(.success([]))
                 }

@@ -112,5 +112,6 @@ struct ContentView_Previews: PreviewProvider {
         }
         .environment(ModelObserver())
         .environment(RecipeObserver())
+        .environment(UserObserver())
     }
 }

@@ -12,10 +12,13 @@ struct OTPConfirmationView: View {
     @Environment(\.dismiss) private var dismiss
     
     @Binding var otpText: String
+    var onLogin: (() -> Void)?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             Button {
+                guard let toLogin = onLogin else { return }
+                toLogin()
                 dismiss()
             } label: {
                 Image(systemName: "xmark")

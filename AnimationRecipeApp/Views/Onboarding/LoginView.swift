@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(UserObserver.self) var userModel: UserObserver
     @Binding var showSignup: Bool
     @State private var email: String = ""
     @State private var pass: String = ""
@@ -99,11 +100,15 @@ struct LoginView: View {
         // OTP Verification
         .sheet(isPresented: $askOTP, content: {
             if #available(iOS 16.4, *) {
-                OTPConfirmationView(otpText: $otpText)
+                OTPConfirmationView(otpText: $otpText, onLogin: {
+                    userModel.login(email: email)
+                })
                     .presentationDetents([.height(350)])
                     .presentationCornerRadius(30)
             } else {
-                OTPConfirmationView(otpText: $otpText)
+                OTPConfirmationView(otpText: $otpText, onLogin: {
+                    userModel.login(email: email)
+                })
                     .presentationDetents([.height(350)])
             }
         })
@@ -114,6 +119,7 @@ struct LoginView_Previews: PreviewProvider {
     @State static var signUp: Bool = false
     static var previews: some View {
         LoginView(showSignup: $signUp)
+            .environment(UserObserver())
     }
 }
 

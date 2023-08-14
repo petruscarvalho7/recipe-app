@@ -12,6 +12,7 @@ import SwiftData
 struct AnimationRecipeApp: App {
     @State var model = ModelObserver()
     @State var recipeModel = RecipeObserver()
+    @State var userModel = UserObserver()
     
     let modelContainer: ModelContainer
         
@@ -28,6 +29,7 @@ struct AnimationRecipeApp: App {
             ContentView()
                 .environment(model)
                 .environment(recipeModel)
+                .environment(userModel)
         }
         .modelContainer(modelContainer)
     }

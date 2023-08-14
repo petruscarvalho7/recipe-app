@@ -160,9 +160,9 @@ extension HomeView {
                     Button {
                         withAnimation {
                             if favRecipe {
-                                removeFavRecipe(favRecipeData: recipeExists.first)
+                                recipeModel.setDefaultOffset(index: index, isFavorite: isFavorite)
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    recipeModel.setDefaultOffset(index: index, isFavorite: isFavorite)
+                                    removeFavRecipe(favRecipeData: recipeExists.first)
                                 }
                             } else {
                                 saveFavRecipe(recipe: recipeList[index])

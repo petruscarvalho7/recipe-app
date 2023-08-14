@@ -53,6 +53,8 @@
 		F47FBF9F2A87BC9700C650F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FBF9E2A87BC9700C650F2 /* User.swift */; };
 		F47FBFA12A87BDB800C650F2 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FBFA02A87BDB800C650F2 /* ProfileEditView.swift */; };
 		F47FBFA32A8803A300C650F2 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FBFA22A8803A300C650F2 /* ProfileImage.swift */; };
+		F47FBFA92A8A5D6E00C650F2 /* UserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FBFA82A8A5D6E00C650F2 /* UserObserver.swift */; };
+		F47FBFAB2A8A602300C650F2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FBFAA2A8A602300C650F2 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,8 @@
 		F47FBFA02A87BDB800C650F2 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		F47FBFA22A8803A300C650F2 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		F47FBFA72A8910FE00C650F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F47FBFA82A8A5D6E00C650F2 /* UserObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObserver.swift; sourceTree = "<group>"; };
+		F47FBFAA2A8A602300C650F2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +299,7 @@
 				F461C7A62A8394B200267E9A /* URLCache+Extension.swift */,
 				F461C7AC2A83A00400267E9A /* View+Extension.swift */,
 				F461C7BE2A83CD4B00267E9A /* Binding+Extension.swift */,
+				F47FBFAA2A8A602300C650F2 /* String+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 			children = (
 				F457D56F2A7E7FAF00FE2C88 /* ModelObserver.swift */,
 				F42684F72A8158BC000F4073 /* RecipeObserver.swift */,
+				F47FBFA82A8A5D6E00C650F2 /* UserObserver.swift */,
 			);
 			path = Observer;
 			sourceTree = "<group>";
@@ -492,6 +498,7 @@
 				F461C7B32A83B3D500267E9A /* LoggedInView.swift in Sources */,
 				F44A1A1E2A7FD7F300795670 /* FavoriteRecipes+Data.swift in Sources */,
 				F457D5802A7E7FAF00FE2C88 /* PreferenceKeys.swift in Sources */,
+				F47FBFAB2A8A602300C650F2 /* String+Extension.swift in Sources */,
 				F461C7BB2A83C54B00267E9A /* OTPConfirmationView.swift in Sources */,
 				F457D5862A7E7FAF00FE2C88 /* RecipeDetailsView.swift in Sources */,
 				F461C7B92A83C3D700267E9A /* PasswordResetView.swift in Sources */,
@@ -505,6 +512,7 @@
 				F457D5812A7E7FAF00FE2C88 /* Tab.swift in Sources */,
 				F461C7AF2A83A2F800267E9A /* InputTF.swift in Sources */,
 				F457D5822A7E7FAF00FE2C88 /* TabBar.swift in Sources */,
+				F47FBFA92A8A5D6E00C650F2 /* UserObserver.swift in Sources */,
 				F457D53D2A7E7F9600FE2C88 /* AnimationRecipeApp.swift in Sources */,
 				F457D57F2A7E7FAF00FE2C88 /* ModelObserver.swift in Sources */,
 				F457D5832A7E7FAF00FE2C88 /* NavigationBar.swift in Sources */,

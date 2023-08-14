@@ -24,11 +24,11 @@ class RecipeObserver {
         if isFavorite {
             setFavValues(recipes: recipes)
         } else {
-            recipeStateList = .isLoading
+            if recipeStateList != .isLoading {
+                recipeStateList = .isLoading
+            }
             if isRefreshing {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                    self.fetchRecipeList(searchText)
-                }
+                self.fetchRecipeList(searchText)
             } else {
                 recipeStateList = .hasList
             }
@@ -54,7 +54,7 @@ class RecipeObserver {
             switch result {
             case .success(let recipesList):
                 self.recipeList = recipesList
-                recipeStateList = recipesList.isEmpty ? .isEmpty : .hasList
+                self.recipeStateList = recipesList.isEmpty ? .isEmpty : .hasList
             case .failure(_): break
                 // TODO: failure flow
             }

@@ -22,7 +22,7 @@ class ModelObserver {
     var showNav: Bool = true
     
     // Modal
-    var loggedInOut: LoggedInOut = .loggedIn
+    var loggedInOut: LoggedInOut = .onboarding
     var showModal: Bool = false
     var dismissModal: Bool = false
     
