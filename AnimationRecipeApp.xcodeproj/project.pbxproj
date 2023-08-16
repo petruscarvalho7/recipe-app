@@ -55,6 +55,9 @@
 		F47FBFA32A8803A300C650F2 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FBFA22A8803A300C650F2 /* ProfileImage.swift */; };
 		F47FBFA92A8A5D6E00C650F2 /* UserObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FBFA82A8A5D6E00C650F2 /* UserObserver.swift */; };
 		F47FBFAB2A8A602300C650F2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47FBFAA2A8A602300C650F2 /* String+Extension.swift */; };
+		F4CFD5012A8CC8F100040C03 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CFD5002A8CC8F100040C03 /* TagsView.swift */; };
+		F4CFD5042A8CD92800040C03 /* TagLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CFD5032A8CD92800040C03 /* TagLayout.swift */; };
+		F4CFD5062A8CFFA600040C03 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CFD5052A8CFFA600040C03 /* TagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +128,9 @@
 		F47FBFA72A8910FE00C650F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F47FBFA82A8A5D6E00C650F2 /* UserObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObserver.swift; sourceTree = "<group>"; };
 		F47FBFAA2A8A602300C650F2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		F4CFD5002A8CC8F100040C03 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		F4CFD5032A8CD92800040C03 /* TagLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLayout.swift; sourceTree = "<group>"; };
+		F4CFD5052A8CFFA600040C03 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +255,7 @@
 		F457D56B2A7E7FAF00FE2C88 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F4CFD5022A8CD90F00040C03 /* Tags */,
 				F457D56C2A7E7FAF00FE2C88 /* RecipeItem.swift */,
 				F44A1A1B2A7FD49700795670 /* LoadingView.swift */,
 				F42684F52A811FB2000F4073 /* FavoriteEmptyView.swift */,
@@ -336,6 +343,16 @@
 				F47FBFA82A8A5D6E00C650F2 /* UserObserver.swift */,
 			);
 			path = Observer;
+			sourceTree = "<group>";
+		};
+		F4CFD5022A8CD90F00040C03 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				F4CFD5002A8CC8F100040C03 /* TagsView.swift */,
+				F4CFD5032A8CD92800040C03 /* TagLayout.swift */,
+				F4CFD5052A8CFFA600040C03 /* TagView.swift */,
+			);
+			path = Tags;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,6 +507,8 @@
 				F457D57E2A7E7FAF00FE2C88 /* Recipe.swift in Sources */,
 				F457D57D2A7E7FAF00FE2C88 /* RecipeItem.swift in Sources */,
 				F47FBFA12A87BDB800C650F2 /* ProfileEditView.swift in Sources */,
+				F4CFD5062A8CFFA600040C03 /* TagView.swift in Sources */,
+				F4CFD5012A8CC8F100040C03 /* TagsView.swift in Sources */,
 				F461C7A72A8394B200267E9A /* URLCache+Extension.swift in Sources */,
 				F4191CEA2A87B1B3003D2DE5 /* Environment.swift in Sources */,
 				F461C7AB2A839F4900267E9A /* LoginView.swift in Sources */,
@@ -506,6 +525,7 @@
 				F461C7B52A83BC2300267E9A /* SignUpView.swift in Sources */,
 				F461C7B12A83A81800267E9A /* GradientButton.swift in Sources */,
 				F461C7BF2A83CD4B00267E9A /* Binding+Extension.swift in Sources */,
+				F4CFD5042A8CD92800040C03 /* TagLayout.swift in Sources */,
 				F461C7BD2A83C67300267E9A /* OTPVerificationTF.swift in Sources */,
 				F457D57B2A7E7FAF00FE2C88 /* Animations.swift in Sources */,
 				F457D57C2A7E7FAF00FE2C88 /* AnimatableFontModifier.swift in Sources */,

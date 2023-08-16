@@ -10,10 +10,16 @@ import SwiftUI
 struct NavigationBar: View {
     @Binding var hasScrolled: Bool
     @State var showSearch = false
+    @State var showTags = false
     @State private var searchText: String = ""
     
     var onSubmit: (_ text: String) -> ()
     var title = ""
+    
+    // selected tags
+    @State private var selectedTags: [String] = ["Pasta"]
+    
+    @Namespace private var namespace
     
     var body: some View {
         ZStack {
@@ -90,10 +96,48 @@ struct NavigationBar: View {
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.top, 20)
             .offset(y: hasScrolled ? 4 : 0)
+            
+            // selected tags
+            ScrollView(.horizontal) {
+                HStack(spacing: 12) {
+                    TagView(tag: "Add Tag", color: .green, icon: "plus")
+                        .onTapGesture {
+                            withAnimation(.snappy) {
+                                showTags.toggle()
+                            }
+                        }
+                    ForEach(selectedTags, id: \.self) { tag in
+                        TagView(tag: tag, color: .pink, icon: "checkmark")
+                            .matchedGeometryEffect(id: tag, in: namespace)
+//                            .onTapGesture {
+//                                if showTags {
+//                                    withAnimation(.snappy) {
+//                                        selectedTags.removeAll {
+//                                            $0 == tag
+//                                        }
+//                                    }
+//                                }
+//                            }
+                    }
+                }
+                .padding(.horizontal, 15)
+                .frame(height: 35)
+                .padding(.bottom, 15)
+            }
+            .scrollClipDisabled(true)
+            .scrollIndicators(.hidden)
+            .backgroundStyle(.white)
+            .padding(.top, 130)
         }
         .zIndex(0)
         .frame(height: hasScrolled ? 44 : 70)
         .frame(maxHeight: .infinity, alignment: .top)
+        .sheet(isPresented: $showTags, content: {
+            TagsView(showTags: $showTags, onSubmit: onSubmit, selectedTags: $selectedTags)
+                .presentationDetents([.height(500)])
+                .presentationCornerRadius(30)
+        })
+        
     }
 }
 

@@ -82,7 +82,7 @@ struct HomeView: View {
             }
             .coordinateSpace(name: "scroll")
             .safeAreaInset(edge: .top, content: {
-                Color.clear.frame(height: 70)
+                Color.clear.frame(height: 110)
             })
             .overlay(
                 NavigationBar(
