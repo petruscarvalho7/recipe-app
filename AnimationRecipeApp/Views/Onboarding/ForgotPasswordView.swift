@@ -38,13 +38,19 @@ struct ForgotPasswordView: View {
                 InputTF(iconName: "at", hint: "Email...", value: $email)
                 
                 // LoginButton
-                GradientButton(title: "Continue", iconName: "arrow.right") {
-                    Task {
-                        dismiss()
-                        try? await Task.sleep(for: .seconds(0))
-                        showResetView = true
+                GradientButton(content: {
+                    HStack(spacing: 25) {
+                        Text("Continue")
+                        Image(systemName: "arrow.right")
                     }
-                }
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                }, onPress: {
+                    dismiss()
+                    try? await Task.sleep(for: .seconds(0))
+                    showResetView = true
+                    return .success
+                })
                 .hSpacing(.trailing)
                 .disableWithOpacity(email.isEmpty)
             }

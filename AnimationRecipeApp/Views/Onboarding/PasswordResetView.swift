@@ -37,9 +37,16 @@ struct PasswordResetView: View {
                 InputTF(iconName: "lock", hint: "Confirm password...", isPassword: true, value: $confirmPassword)
                 
                 // LoginButton
-                GradientButton(title: titleButtonText, iconName: "arrow.right") {
-          
-                }
+                GradientButton(content: {
+                    HStack(spacing: 25) {
+                        Text(titleButtonText)
+                        Image(systemName: "arrow.right")
+                    }
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                }, onPress: {
+                    return .success
+                })
                 .hSpacing(.trailing)
                 .disableWithOpacity(password.isEmpty || confirmPassword.isEmpty)
             }

@@ -49,11 +49,20 @@ struct LoginView: View {
                 .hSpacing(.trailing)
                 
                 // LoginButton
-                GradientButton(title: "Login", iconName: "arrow.right") {
+                GradientButton(content: {
+                    HStack(spacing: 25) {
+                        Text("Login")
+                        Image(systemName: "arrow.right")
+                    }
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                }, onPress: {
+                    try? await Task.sleep(for: .seconds(2))
                     askOTP.toggle()
-                }
+                    return .success
+                })
                 .hSpacing(.trailing)
-                .disableWithOpacity(email.isEmpty || pass.isEmpty)
+//                .disableWithOpacity(email.isEmpty || pass.isEmpty)
             }
             .padding(.top, 20)
             

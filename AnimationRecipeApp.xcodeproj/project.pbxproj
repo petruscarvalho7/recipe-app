@@ -58,6 +58,7 @@
 		F4CFD5012A8CC8F100040C03 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CFD5002A8CC8F100040C03 /* TagsView.swift */; };
 		F4CFD5042A8CD92800040C03 /* TagLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CFD5032A8CD92800040C03 /* TagLayout.swift */; };
 		F4CFD5062A8CFFA600040C03 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CFD5052A8CFFA600040C03 /* TagView.swift */; };
+		F4CFD5082A8E558000040C03 /* Particle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CFD5072A8E558000040C03 /* Particle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		F4CFD5002A8CC8F100040C03 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
 		F4CFD5032A8CD92800040C03 /* TagLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLayout.swift; sourceTree = "<group>"; };
 		F4CFD5052A8CFFA600040C03 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		F4CFD5072A8E558000040C03 /* Particle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Particle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 				F457D5712A7E7FAF00FE2C88 /* Tab.swift */,
 				F44A1A1D2A7FD7F300795670 /* FavoriteRecipes+Data.swift */,
 				F47FBF9E2A87BC9700C650F2 /* User.swift */,
+				F4CFD5072A8E558000040C03 /* Particle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				F44A1A1A2A7FB1DE00795670 /* RecipeAPI.swift in Sources */,
 				F457D57A2A7E7FAF00FE2C88 /* Styles.swift in Sources */,
 				F42684F82A8158BC000F4073 /* RecipeObserver.swift in Sources */,
+				F4CFD5082A8E558000040C03 /* Particle.swift in Sources */,
 				F475CC8E2A854D540021088A /* RecipeEmptyList.swift in Sources */,
 				F457D53F2A7E7F9600FE2C88 /* ContentView.swift in Sources */,
 				F461C7AD2A83A00400267E9A /* View+Extension.swift in Sources */,

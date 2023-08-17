@@ -48,9 +48,17 @@ struct SignUpView: View {
                     .padding(.top, 5)
                 
                 // LoginButton
-                GradientButton(title: "Sign Up", iconName: "arrow.right") {
+                GradientButton(content: {
+                    HStack(spacing: 25) {
+                        Text("Sign Up")
+                        Image(systemName: "arrow.right")
+                    }
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                }, onPress: {
                     askOTP.toggle()
-                }
+                    return .success
+                })
                 .hSpacing(.trailing)
                 .disableWithOpacity(email.isEmpty || pass.isEmpty || fullname.isEmpty)
             }

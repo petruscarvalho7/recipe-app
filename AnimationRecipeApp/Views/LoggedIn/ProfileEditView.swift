@@ -42,9 +42,16 @@ struct ProfileEditView: View {
                     .hSpacing(.trailing)
                     
                     Spacer()
-                    GradientButton(title: "Save", iconName: "checkmark") {
-                        /// TODO: save
-                    }
+                    GradientButton(content: {
+                        HStack(spacing: 25) {
+                            Text("Save")
+                            Image(systemName: "checkmark")
+                        }
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+                    }, onPress: {
+                        return .success
+                    })
                     .hSpacing(.center)
                     .disableWithOpacity(email.isEmpty || fullname.isEmpty)
                     Spacer()

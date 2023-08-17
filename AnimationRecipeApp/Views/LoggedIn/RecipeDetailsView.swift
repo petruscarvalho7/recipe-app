@@ -245,6 +245,14 @@ extension RecipeDetailsView {
                             .font(.body.bold())
                             .frame(width: 44,height: 29)
                             .foregroundColor(isFavorite ? .red : .none)
+                            /// pulse animation with multiple images
+//                            .particleEffect(
+//                                systemImage: "heart.fill",
+//                                font: .body.bold(),
+//                                status: isFavorite,
+//                                activeTint: .red,
+//                                inActiveTint: .none
+//                            )
                         Text(!isFavorite ? "Favorite" : "Unfavorite")
                             .font(.footnote)
                     }

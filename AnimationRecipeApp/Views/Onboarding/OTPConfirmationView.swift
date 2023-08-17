@@ -43,12 +43,20 @@ struct OTPConfirmationView: View {
                 OTPVerificationTF(otpText: $otpText)
                 
                 // LoginButton
-                GradientButton(title: "Confirm", iconName: "arrow.right") {
+                GradientButton(content: {
+                    HStack(spacing: 25) {
+                        Text("Confirm")
+                        Image(systemName: "arrow.right")
+                    }
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                }, onPress: {
                     withAnimation(.linear(duration: 1.5)) {
                         dismiss()
                         model.loggedInOut = .loggedIn
+                        return .success
                     }
-                }
+                })
                 .hSpacing(.trailing)
                 .disableWithOpacity(otpText.isEmpty)
             }
